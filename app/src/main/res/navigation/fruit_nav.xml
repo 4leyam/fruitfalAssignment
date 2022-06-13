@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fruit_nav"
+    app:startDestination="@id/commitListFragment">
+
+    <fragment
+        android:id="@+id/commitListFragment"
+        android:name="in.lemreh.itw_assign.ui.main.commits.CommitListFragment"
+        android:label="CommitListFragment"
+        tools:layout="@layout/commit_list_fragment"
+        >
+        <action
+            android:id="@+id/action_commitListFragment_to_singleCommitFragment2"
+            app:destination="@id/singleCommitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleCommitFragment"
+        android:name="in.lemreh.itw_assign.ui.main.commits.SingleCommitFragment"
+        android:label="SingleCommitFragment"
+        tools:layout="@layout/single_commit_fragment"
+        >
+        <argument
+            android:name="ref"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="itemDTO"
+            type="in.lemreh.itw_assign.service.dto.CommitListItemDTO" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/commiter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{itemDTO.commit.author.name}"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            tools:text="Committer's Name"
+            app:layout_constraintHorizontal_bias=".1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/short_sha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{itemDTO.sha}"
+            android:textSize="12sp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:typeface="monospace"
+            android:textAllCaps="true"
+            tools:text="743bhjbfj4389"
+            app:layout_constraintTop_toBottomOf="@id/commiter"
+            app:layout_constraintStart_toStartOf="@id/commiter"
+            />
+
+        <TextView
+            android:id="@+id/commit_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{"\""+itemDTO.commit.message+"\""}'
+            android:textStyle="italic"
+            android:layout_marginTop="10dp"
+            tools:text="Here is a simple message that describes the current commit"
+            app:layout_constraintTop_toBottomOf="@id/short_sha"
+            app:layout_constraintStart_toStartOf="@id/commiter"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="0dp"
+            android:layout_height="0.7dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@id/commit_message"
+            app:layout_constraintStart_toStartOf="@id/commiter"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="7dp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
